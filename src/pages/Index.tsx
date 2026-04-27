@@ -177,24 +177,24 @@ export default function Index() {
           }}
         />
 
-        <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center py-24">
-          <div className="space-y-8">
+        <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 items-center py-16 md:py-24">
+          <div className="space-y-6 md:space-y-8 order-2 md:order-1">
             <div className="animate-fade-up delay-100">
               <span className="font-golos text-xs tracking-[0.25em] uppercase text-muted-foreground">
                 Мастерская керамики
               </span>
             </div>
-            <h1 className="font-cormorant text-6xl md:text-7xl font-light leading-[1.05] animate-fade-up delay-200">
+            <h1 className="font-cormorant text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] animate-fade-up delay-200">
               Чайная<br />
-              <em className="not-italic font-normal" style={{ color: 'hsl(var(--accent))' }}>церемония</em>
+              <em className="not-italic font-normal" style={{ color: 'hsl(var(--primary))' }}>церемония</em>
             </h1>
-            <p className="font-golos text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-up delay-300">
+            <p className="font-golos text-sm md:text-base text-muted-foreground leading-relaxed max-w-sm animate-fade-up delay-300">
               Посуда ручной работы для настоящих ценителей чая. Каждое изделие — уникальный предмет, созданный с вниманием к форме и материалу.
             </p>
-            <div className="flex items-center gap-4 animate-fade-up delay-400">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 animate-fade-up delay-400">
               <button
                 onClick={() => document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-primary text-primary-foreground font-golos text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+                className="w-full sm:w-auto bg-primary text-primary-foreground font-golos text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
               >
                 Смотреть каталог
               </button>
@@ -204,16 +204,16 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative animate-fade-in delay-400">
-            <div className="aspect-[4/5] overflow-hidden">
+          <div className="relative animate-fade-in delay-400 order-1 md:order-2">
+            <div className="aspect-[4/3] md:aspect-[4/5] overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/4477f7f3-766d-4909-8a9f-c713495c3daf.jpg"
                 alt="Чайный набор"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-4 -left-4 bg-background border border-border px-5 py-4 shadow-sm">
-              <p className="font-cormorant text-2xl font-light">120+</p>
+            <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-background border border-border px-4 py-3 md:px-5 md:py-4 shadow-sm">
+              <p className="font-cormorant text-xl md:text-2xl font-light">120+</p>
               <p className="font-golos text-xs text-muted-foreground tracking-wider">изделий в работе</p>
             </div>
           </div>
