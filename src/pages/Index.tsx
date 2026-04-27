@@ -255,6 +255,57 @@ export default function Index() {
         </div>
       </section>
 
+      {/* DIVIDER */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="border-t border-border" />
+      </div>
+
+      {/* TEAM */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="mb-14">
+          <span className="font-golos text-xs tracking-[0.25em] uppercase text-muted-foreground block mb-3">
+            Люди
+          </span>
+          <h2 className="font-cormorant text-5xl font-light">Наша команда</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              name: "Елена Ван",
+              role: "Мастер-керамист",
+              detail: "Стаж 15 лет",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/68fc3dc1-84e8-480d-9496-7aa191320275.jpg",
+            },
+            {
+              name: "Дмитрий Сучков",
+              role: "Дизайнер посуды",
+              detail: "Более 50 коллекций",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/117c5786-0a08-4b14-af04-0e6810a4cab9.jpg",
+            },
+            {
+              name: "Ольга Чайкина",
+              role: "Чайный сомелье",
+              detail: "Проводит дегустации",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/7a81e14d-f9db-47e8-8335-48b2151e89eb.jpg",
+            },
+          ].map((person, i) => (
+            <div key={i} className="group">
+              <div className="aspect-[3/4] overflow-hidden bg-card mb-5">
+                <img
+                  src={person.image}
+                  alt={person.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="font-cormorant text-2xl font-medium mb-1">{person.name}</h3>
+              <p className="font-golos text-sm text-foreground tracking-wide">{person.role}</p>
+              <p className="font-golos text-xs text-muted-foreground mt-1">{person.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA BANNER */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
