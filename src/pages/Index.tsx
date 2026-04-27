@@ -329,19 +329,19 @@ export default function Index() {
               name: "Елена Ван",
               role: "Мастер-керамист",
               detail: "Стаж 15 лет",
-              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/68fc3dc1-84e8-480d-9496-7aa191320275.jpg",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/9acc6e97-587f-4754-a4d8-b5e88af01944.jpg",
             },
             {
               name: "Дмитрий Сучков",
               role: "Дизайнер посуды",
               detail: "Более 50 коллекций",
-              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/117c5786-0a08-4b14-af04-0e6810a4cab9.jpg",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/f720ba68-a16a-4ae3-9688-46337c7b8632.jpg",
             },
             {
               name: "Ольга Чайкина",
               role: "Чайный сомелье",
               detail: "Проводит дегустации",
-              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/7a81e14d-f9db-47e8-8335-48b2151e89eb.jpg",
+              image: "https://cdn.poehali.dev/projects/26049804-e060-4eee-8e42-49077f85a04d/files/bec78ef4-b6d0-4185-9e51-65f1f51614e9.jpg",
             },
           ].map((person, i) => (
             <div key={i} className="group">
