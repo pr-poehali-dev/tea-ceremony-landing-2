@@ -1,6 +1,60 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+function ContactForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim()) return;
+    setSent(true);
+  };
+
+  if (sent) {
+    return (
+      <div className="border border-border px-6 py-8 text-center">
+        <p className="font-cormorant text-2xl font-light mb-2">Спасибо, {name}!</p>
+        <p className="font-golos text-sm text-muted-foreground">Мы свяжемся с вами в ближайшее время.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1.5">
+        <label className="font-golos text-xs tracking-widest uppercase text-muted-foreground">Имя</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Ваше имя"
+          className="border border-border bg-transparent px-4 py-3 font-golos text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+          required
+        />
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <label className="font-golos text-xs tracking-widest uppercase text-muted-foreground">Телефон</label>
+        <input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="+7 (___) ___-__-__"
+          className="border border-border bg-transparent px-4 py-3 font-golos text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        className="mt-2 bg-primary text-primary-foreground font-golos text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
+      >
+        Отправить
+      </button>
+    </form>
+  );
+}
+
 const PRODUCTS = [
   {
     id: 1,
@@ -318,6 +372,59 @@ export default function Index() {
           <button className="shrink-0 border border-primary-foreground font-golos text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-primary-foreground hover:text-primary transition-colors duration-300">
             Обсудить заказ
           </button>
+        </div>
+      </section>
+
+      {/* CONTACTS */}
+      <section id="contacts" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="mb-14">
+          <span className="font-golos text-xs tracking-[0.25em] uppercase text-muted-foreground block mb-3">
+            Связаться
+          </span>
+          <h2 className="font-cormorant text-5xl font-light">Контакты</h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Left: info + form */}
+          <div className="flex flex-col gap-10">
+            {/* Contact info */}
+            <div className="flex flex-col gap-5">
+              {[
+                { icon: "MapPin", label: "Адрес", value: "г. Краснодар, ул. Красная 45" },
+                { icon: "Phone", label: "Телефон", value: "+7 (861) 123-45-67" },
+                { icon: "Mail", label: "Email", value: "tea@ceremony.ru" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-4">
+                  <div className="w-9 h-9 border border-border flex items-center justify-center text-accent shrink-0 mt-0.5">
+                    <Icon name={item.icon as "MapPin" | "Phone" | "Mail"} size={15} />
+                  </div>
+                  <div>
+                    <p className="font-golos text-xs text-muted-foreground tracking-wider uppercase mb-0.5">{item.label}</p>
+                    <p className="font-golos text-sm text-foreground">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Form */}
+            <div className="border-t border-border pt-10">
+              <h3 className="font-cormorant text-2xl font-light mb-6">Обратная связь</h3>
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Right: map */}
+          <div className="h-[480px] overflow-hidden border border-border">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=38.976518%2C45.035470&z=16&pt=38.976518%2C45.035470%2Cpm2rdm&text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F%2045"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allowFullScreen
+              title="Карта"
+              style={{ border: 0 }}
+            />
+          </div>
         </div>
       </section>
 
